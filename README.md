@@ -9,7 +9,7 @@ The current flow when a POD is started by kubernetes is composed of the followin
 3. When a docker images is pulled, the container is started immediately.
 4. Once all the containers are running, `kubelet` passes the status of the POD to `Running`.
 
-![Current state machine](current_state_machine.svg)
+![Current state machine](https://rawgithub.com/lhuard1A/throttling-study/master/current_state_machine.svg)
 
 ## Running does not imply Ready
 
@@ -46,7 +46,7 @@ There is a gate keeper that limits the number of images that can be fetched simu
 
 Once an image for a container has been fetched, the container can be created but not started immediately. A second gate keeper limits the number of processes that can be in the `starting` status.
 
-![Proposed state machine](proposed_state_machine.svg)
+![Proposed state machine](https://rawgithub.com/lhuard1A/throttling-study/master/proposed_state_machine.svg)
 
 In order to be able to limit the number of containers that are in the `starting` status at one time, we need to know when a process leaves the `starting` status. From a docker perspective, there is no clean generic way to know that a process is `ready` without any collaboration from that process.
 
