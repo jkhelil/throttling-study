@@ -17,7 +17,7 @@ The first remark is that it is not because a process is started that it is ready
 
 For example, we can have a process that starts its life by fetching some configuration elements from somewhere and doing some expensive configuration stuff before being really ready to work.
 
-This proposition aims at distinguishing the `starting` and `ready` state.
+This proposition aims at distinguishing the `starting` and `ready` states.
 
 ## Need for throttling
 
@@ -52,9 +52,56 @@ In order to be able to limit the number of containers that are in the `starting`
 
 Systemd had a similar need to know when a service is ready in order to know when it can start the follow-up units.
 
-The services which are `Type=notify` require the service to tell systemd about their state by posting the info on a UNIX socket.
+Systemd has several different kinds of services which notify their readiness by different means:
+* simple: the service is immediately ready;
+* forking: the service is ready as soon as the parent process exits;
+* dbus: the service is ready as soon as it acquires a name on D-Bus
+* notify: the service is ready as soon at it has explicitly notify systemd about it by posting a message on a dedicated UNIX socket via the `sd_notify` function.
 
-Could we implement a similar mechanism?
+Could we implement similar mechanisms to let kubernetes know when a container (and hence a POD) is "really" ready?
+
+## Possible issue with the throttling mechanism.
+
+Let’s assume the following hypothesis:
+
+* We have processes able to notify kube that they are ready, like the socket notification mechanism of systemd.
+
+* Inside a POD, we have:
+  * a container A
+  * a container B that needs to communicate with A in order to become ready
+  * a container C that needs to communicate with A in order to become ready
+
+  An example could be:
+  * A is a database. It notifies its readiness as soon as it is ready to process requests.
+  * B is an application that needs to connect to the database to configure itself. It notifies its readiness as soon as it is configured.
+  * C is similar to B
+
+* We set the throttling parameter to limit the number of processes starting at a given time to 2.
+
+If we are lucky, things can happen in this order:
+
+* B starts. It cannot configure itself because A is not there. It is waiting for A.
+* A starts.
+* A is ready.
+* As A becomes ready, there is one “starting” slot available to make C start.
+* B connects to A. B configure itself and eventually becomes ready
+* C connects to A, configure itself and becomes ready
+
+![Lucky flow](https://rawgithub.com/lhuard1A/throttling-study/master/lucky_flow.svg)
+
+If we are unlucky, things can happen in this order:
+
+* B and C are started. They are waiting for being able to connect to A
+* A is not started because we already have two processes in the starting mode.
+* We’re dead-locked.
+
+![Unluck flow](https://rawgithub.com/lhuard1A/throttling-study/master/unlucky_flow.svg)
+
+This trivial example shows that
+* limiting the number of processes starting at a time and
+* having process readiness conditioned by other process readiness
+
+is not possible if we cannot enforce a start-up order.
 
 ## Questions:
 
