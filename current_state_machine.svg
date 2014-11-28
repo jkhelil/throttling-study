@@ -7,6 +7,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="542.5332"
@@ -16,7 +17,34 @@
    inkscape:version="0.48.5 r10040"
    sodipodi:docname="current_state_machine.svg">
   <defs
-     id="defs4" />
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;">
+      <path
+         id="path3936"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mend"
+       style="overflow:visible;">
+      <path
+         id="path3942"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
+         transform="scale(0.4) rotate(180) translate(10,0)" />
+    </marker>
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -25,8 +53,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4142136"
-     inkscape:cx="221.37062"
-     inkscape:cy="170.16359"
+     inkscape:cx="217.99059"
+     inkscape:cy="170.06004"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -66,11 +94,6 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(-39.431641,-51.862183)">
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 300,82.362183 0,319.999997"
-       id="path3079"
-       inkscape:connector-curvature="0" />
     <g
        id="g3314">
       <rect
@@ -113,7 +136,8 @@
            y="131.83582"
            x="300"
            id="tspan2995"
-           sodipodi:role="line">Pending</tspan><tspan
+           sodipodi:role="line"
+           style="font-weight:bold;-inkscape-font-specification:Sans Bold">Pending</tspan><tspan
            id="tspan2997"
            y="146.83582"
            x="300"
@@ -143,7 +167,8 @@
            y="231.83582"
            x="299.95605"
            id="tspan3003"
-           sodipodi:role="line">Pending</tspan><tspan
+           sodipodi:role="line"
+           style="font-weight:bold;-inkscape-font-specification:Sans Bold">Pending</tspan><tspan
            id="tspan3005"
            y="246.83582"
            x="299.95605"
@@ -173,33 +198,34 @@
            y="420.67273"
            x="299.95605"
            id="tspan3011"
-           sodipodi:role="line">Running</tspan></text>
+           sodipodi:role="line"
+           style="font-weight:bold;-inkscape-font-specification:Sans Bold">Running</tspan></text>
     </g>
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="260"
-       y="102.36218"
+       x="255"
+       y="101.83582"
        id="text3043"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="260"
-         y="102.36218"
+         x="255"
+         y="101.83582"
          id="tspan3047">A POD is created</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="250"
-       y="192.36218"
+       x="255"
+       y="188.17273"
        id="text3051"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3053"
-         x="250"
-         y="192.36218">scheduler notices an unbound POD</tspan><tspan
+         x="255"
+         y="188.17273">scheduler notices an unbound POD</tspan><tspan
          sodipodi:role="line"
-         x="250"
-         y="207.36218"
+         x="255"
+         y="203.17273"
          id="tspan3055">and assign it to a minion</tspan></text>
     <g
        id="g3360">
@@ -221,7 +247,8 @@
            sodipodi:role="line"
            id="tspan3337"
            x="299.95605"
-           y="321.83582">Pending</tspan><tspan
+           y="321.83582"
+           style="font-weight:bold;-inkscape-font-specification:Sans Bold">Pending</tspan><tspan
            sodipodi:role="line"
            x="299.95605"
            y="336.83582"
@@ -234,50 +261,104 @@
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="260"
-       y="292.36218"
+       x="255"
+       y="291.83582"
        id="text3059"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3061"
-         x="260"
-         y="292.36218">kubelet starts the containers</tspan></text>
+         x="255"
+         y="291.83582">kubelet starts the containers</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="260"
-       y="382.36218"
+       x="255"
+       y="378.17273"
        id="text3063"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3065"
-         x="260"
-         y="382.36218">Docker has pulled all the images</tspan><tspan
+         x="255"
+         y="378.17273">Docker has pulled all the images</tspan><tspan
          sodipodi:role="line"
-         x="260"
-         y="397.36218"
+         x="255"
+         y="393.17273"
          id="tspan3067">and all the containers are running</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="360"
-       y="332.36218"
+       x="350"
+       y="335.67273"
        id="text3069"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3071"
-         x="360"
-         y="332.36218">The docker images are being pulled</tspan></text>
+         x="350"
+         y="335.67273">The docker images are being pulled</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="360"
-       y="422.36218"
+       x="350"
+       y="420.67273"
        id="text3073"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3075"
-         x="360"
-         y="422.36218">All the docker containers are running</tspan></text>
+         x="350"
+         y="420.67273">All the docker containers are running</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 260.56836,30.5 0,30"
+       id="path3159"
+       inkscape:connector-curvature="0"
+       transform="translate(39.431641,51.862183)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 260.56836,120.5 0,40"
+       id="path4559"
+       inkscape:connector-curvature="0"
+       transform="translate(39.431641,51.862183)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 260.56836,220.5 0,30"
+       id="path4745"
+       inkscape:connector-curvature="0"
+       transform="translate(39.431641,51.862183)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 260.56836,310.5 0,40"
+       id="path4931"
+       inkscape:connector-curvature="0"
+       transform="translate(39.431641,51.862183)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 265.56836,45.5 -45,0 0,-5 0,0 0,10"
+       id="path5131"
+       inkscape:connector-curvature="0"
+       transform="translate(39.431641,51.862183)" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#path5131"
+       id="use5133"
+       transform="translate(-10e-7,95)"
+       width="542.5332"
+       height="381" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#path5131"
+       id="use5137"
+       transform="translate(-10e-7,190)"
+       width="542.5332"
+       height="381" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#path5131"
+       id="use5139"
+       transform="translate(-10e-7,285)"
+       width="542.5332"
+       height="381" />
   </g>
 </svg>

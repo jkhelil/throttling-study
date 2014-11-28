@@ -10,14 +10,29 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="708.36914"
-   height="471"
+   width="663.36914"
+   height="501"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.5 r10040"
    sodipodi:docname="proposed_state_machine.svg">
   <defs
-     id="defs4" />
+     id="defs4">
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow1Lend"
+       style="overflow:visible">
+      <path
+         id="path3936"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         inkscape:connector-curvature="0" />
+    </marker>
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -26,8 +41,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4142136"
-     inkscape:cx="354.87512"
-     inkscape:cy="235.48995"
+     inkscape:cx="342.74801"
+     inkscape:cy="140.99731"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -47,8 +62,8 @@
        visible="true"
        enabled="true"
        snapvisiblegridlinesonly="true"
-       originx="14.068359px"
-       originy="-529.48718px" />
+       originx="-10.931641px"
+       originy="-499.5px" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -65,12 +80,55 @@
      inkscape:label="Calque 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(14.068359,-51.875)">
-    <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 360,82.362183 0,99.999997 -60,0 0,290 60,0 0,20 0,-20 60,0 0,-290 -60,0 z"
-       id="path3484"
-       inkscape:connector-curvature="0" />
+     transform="translate(-10.931641,-51.862183)">
+    <use
+       x="0"
+       y="0"
+       xlink:href="#use3446"
+       id="use5404"
+       transform="translate(50,10)"
+       width="708.36914"
+       height="471" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#use3444"
+       id="use5402"
+       transform="translate(50,10.000001)"
+       width="708.36914"
+       height="471" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#use3442"
+       id="use5400"
+       transform="translate(50,10)"
+       width="708.36914"
+       height="471" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g3202"
+       id="use3446"
+       transform="translate(50,9.9999974)"
+       width="744.09448"
+       height="1052.3622" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g3194"
+       id="use3444"
+       transform="translate(50,9.9999974)"
+       width="744.09448"
+       height="1052.3622" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g3185"
+       id="use3442"
+       transform="translate(50,9.9999974)"
+       width="744.09448"
+       height="1052.3622" />
     <g
        id="g3380"
        transform="translate(60,0)">
@@ -127,7 +185,7 @@
     </g>
     <g
        id="g3202"
-       transform="translate(0,-250)">
+       transform="translate(10,-240)">
       <rect
          style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2;stroke-opacity:1;stroke-dasharray:none"
          id="rect3141"
@@ -150,7 +208,7 @@
     </g>
     <g
        id="g3194"
-       transform="translate(0,-270)">
+       transform="translate(10,-270)">
       <rect
          style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2;stroke-opacity:1;stroke-dasharray:none"
          id="rect3148"
@@ -173,7 +231,7 @@
     </g>
     <g
        id="g3185"
-       transform="translate(0,-290)">
+       transform="translate(10,-300)">
       <rect
          ry="5"
          y="592.36218"
@@ -198,161 +256,83 @@
            y="622.98816"
            id="tspan3139">pulling</tspan></text>
     </g>
-    <g
-       id="g3433"
-       transform="translate(0,-310)">
-      <rect
-         ry="5"
-         y="522.36218"
-         x="260"
-         height="60"
-         width="80"
-         id="rect3375"
-         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2;stroke-opacity:1;stroke-dasharray:none" />
-      <text
-         xml:space="preserve"
-         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-         x="299.95605"
-         y="540.67273"
-         id="text3131"
-         sodipodi:linespacing="125%"><tspan
-           sodipodi:role="line"
-           id="tspan3133"
-           x="299.95605"
-           y="540.67273">Pending</tspan><tspan
-           sodipodi:role="line"
-           x="299.95605"
-           y="555.67273"
-           id="tspan3137">image</tspan><tspan
-           sodipodi:role="line"
-           x="299.95605"
-           y="570.67273"
-           id="tspan3135">pull</tspan></text>
-    </g>
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="320"
-       y="102.36218"
+       x="315"
+       y="101.83582"
        id="text3043"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="320"
-         y="102.36218"
+         x="315"
+         y="101.83582"
          id="tspan3047">A POD is created</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="240"
-       y="192.36218"
+       x="315"
+       y="183.17273"
        id="text3051"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3053"
-         x="240"
-         y="192.36218">scheduler notices an unbound POD</tspan><tspan
+         x="315"
+         y="183.17273">scheduler notices an unbound POD</tspan><tspan
          sodipodi:role="line"
-         x="240"
-         y="207.36218"
+         x="315"
+         y="198.17273"
          id="tspan3055">and assign it to a minion</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="240"
-       y="282.36218"
-       id="text3059"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan3061"
-         x="240"
-         y="282.36218">The number of images pulled in parallel</tspan><tspan
-         sodipodi:role="line"
-         x="240"
-         y="297.36218"
-         id="tspan3462">drops below the threshold</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:12px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="240"
-       y="412.36218"
+       x="265"
+       y="428.17273"
        id="text3063"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="240"
-         y="412.36218"
+         x="265"
+         y="428.17273"
          id="tspan3067">The number of process starting in parallel</tspan><tspan
          sodipodi:role="line"
-         x="240"
-         y="427.36218"
+         x="265"
+         y="443.17273"
          id="tspan3466">drops below the threshold</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="480"
+       x="460"
        y="325.67273"
        id="text3069"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3071"
-         x="480"
+         x="460"
          y="325.67273">The docker images are being pulled</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="480"
-       y="512.36218"
+       x="460"
+       y="540.67273"
        id="text3073"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3075"
-         x="480"
-         y="512.36218">The POD is ready to work</tspan></text>
-    <use
-       x="0"
-       y="0"
-       xlink:href="#g3433"
-       id="use3440"
-       transform="translate(120,0)"
-       width="744.09448"
-       height="1052.3622" />
-    <use
-       x="0"
-       y="0"
-       xlink:href="#g3185"
-       id="use3442"
-       transform="translate(120,0)"
-       width="744.09448"
-       height="1052.3622" />
-    <use
-       x="0"
-       y="0"
-       xlink:href="#g3194"
-       id="use3444"
-       transform="translate(120,0)"
-       width="744.09448"
-       height="1052.3622" />
-    <use
-       x="0"
-       y="0"
-       xlink:href="#g3202"
-       id="use3446"
-       transform="translate(120,0)"
-       width="744.09448"
-       height="1052.3622" />
+         x="460"
+         y="540.67273">The POD is ready to work</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="480"
-       y="452.36218"
+       x="460"
+       y="470.67273"
        id="text3448"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3450"
-         x="480"
-         y="452.36218">The processes are configuring</tspan></text>
+         x="460"
+         y="470.67273">The processes are configuring</tspan></text>
     <g
        id="g3456"
-       transform="translate(60,19.84668)">
+       transform="translate(60,49.846677)">
       <g
          transform="translate(0,-259.84668)"
          id="g3207">
@@ -380,28 +360,176 @@
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="240"
-       y="362.36218"
+       x="265"
+       y="365.67273"
        id="text3468"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3470"
-         x="240"
-         y="362.36218">The image is pulled</tspan></text>
+         x="265"
+         y="365.67273">The image is pulled</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="240"
-       y="472.36218"
+       x="265"
+       y="498.17273"
        id="text3472"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3474"
-         x="240"
-         y="472.36218">Once all the containers claims themselves</tspan><tspan
+         x="265"
+         y="498.17273">Once all the containers claims themselves</tspan><tspan
          sodipodi:role="line"
-         x="240"
-         y="487.36218"
+         x="265"
+         y="513.17273"
          id="tspan3476">ready, the POD is declared ready</tspan></text>
+    <g
+       id="g5393"
+       transform="translate(-40,-20.000003)">
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2;stroke-opacity:1;stroke-dasharray:none"
+         id="rect5366"
+         width="80"
+         height="60"
+         x="360"
+         y="222.88855"
+         ry="5" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         x="400"
+         y="242.36218"
+         id="text5368"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan5370"
+           x="400"
+           y="242.36218">Pending</tspan><tspan
+           sodipodi:role="line"
+           x="400"
+           y="257.36218"
+           id="tspan5372">and</tspan><tspan
+           sodipodi:role="line"
+           x="400"
+           y="272.36218"
+           id="tspan5374">bound</tspan></text>
+    </g>
+    <text
+       sodipodi:linespacing="125%"
+       id="text5376"
+       y="271.83582"
+       x="265"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         y="271.83582"
+         x="265"
+         id="tspan5378"
+         sodipodi:role="line">Kubelete queues all the containers</tspan><tspan
+         id="tspan5380"
+         y="286.83582"
+         x="265"
+         sodipodi:role="line">of the freshly bound POD,</tspan><tspan
+         id="tspan5382"
+         y="301.83582"
+         x="265"
+         sodipodi:role="line">the flow below is the flow of containers</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 374.06836,30.48718 0,30"
+       id="path5406"
+       inkscape:connector-curvature="0"
+       transform="translate(-14.068359,51.875)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-mid:none;marker-end:url(#Arrow1Lend)"
+       d="m 374.06836,120.48718 0,30"
+       id="path6100"
+       inkscape:connector-curvature="0"
+       transform="translate(-14.068359,51.875)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 374.06836,210.48718 0,40"
+       id="path6830"
+       inkscape:connector-curvature="0"
+       transform="translate(-14.068359,51.875)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 374.06836,290.48718 0,40"
+       id="path7014"
+       inkscape:connector-curvature="0"
+       transform="translate(-14.068359,51.875)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 374.06836,360.48718 0,40"
+       id="path7198"
+       inkscape:connector-curvature="0"
+       transform="translate(-14.068359,51.875)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       d="m 374.06836,430.48718 0,40"
+       id="path7382"
+       inkscape:connector-curvature="0"
+       transform="translate(-14.068359,51.875)" />
+    <g
+       id="g7570">
+      <path
+         transform="translate(-14.068359,51.875)"
+         inkscape:connector-curvature="0"
+         id="path7566"
+         d="m 379.06836,45.48718 -45,0"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         transform="translate(-14.068359,51.875)"
+         inkscape:connector-curvature="0"
+         id="path7568"
+         d="m 334.06836,40.48718 0,10"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g7570"
+       id="use7574"
+       transform="translate(-1e-6,90)"
+       width="708.36914"
+       height="471" />
+    <g
+       id="g7580">
+      <path
+         transform="translate(-14.068359,51.875)"
+         inkscape:connector-curvature="0"
+         id="path7576"
+         d="m 379.06836,230.48718 -95,0"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         transform="translate(-14.068359,51.875)"
+         inkscape:connector-curvature="0"
+         id="path7578"
+         d="m 284.06836,225.48718 0,10"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    </g>
+    <use
+       x="0"
+       y="0"
+       xlink:href="#g7580"
+       id="use7584"
+       transform="translate(-1e-6,80)"
+       width="708.36914"
+       height="471" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#use7584"
+       id="use7586"
+       transform="translate(0,70)"
+       width="708.36914"
+       height="471" />
+    <use
+       x="0"
+       y="0"
+       xlink:href="#use7586"
+       id="use7588"
+       transform="translate(0,70)"
+       width="708.36914"
+       height="471" />
   </g>
 </svg>

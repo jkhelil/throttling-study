@@ -2,6 +2,7 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -9,43 +10,12 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="262.56543"
-   height="105"
+   width="336.97852"
+   height="185.14355"
    id="svg2"
    version="1.1"
    inkscape:version="0.48.5 r10040"
    sodipodi:docname="unlucky_flow.svg">
-  <defs
-     id="defs4">
-    <marker
-       inkscape:stockid="Arrow1Lend"
-       orient="auto"
-       refY="0"
-       refX="0"
-       id="Arrow1Lend"
-       style="overflow:visible">
-      <path
-         id="path3822"
-         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
-         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
-         transform="matrix(-0.8,0,0,-0.8,-10,0)"
-         inkscape:connector-curvature="0" />
-    </marker>
-    <marker
-       inkscape:stockid="Arrow2Mend"
-       orient="auto"
-       refY="0"
-       refX="0"
-       id="Arrow2Mend"
-       style="overflow:visible">
-      <path
-         id="path3846"
-         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
-         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
-         transform="scale(-0.6,-0.6)"
-         inkscape:connector-curvature="0" />
-    </marker>
-  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -54,13 +24,13 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4142136"
-     inkscape:cx="159.7355"
-     inkscape:cy="99.843901"
+     inkscape:cx="95.712474"
+     inkscape:cy="40.164242"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="1680"
-     inkscape:window-height="1030"
+     inkscape:window-width="1920"
+     inkscape:window-height="1025"
      inkscape:window-x="-2"
      inkscape:window-y="-3"
      inkscape:window-maximized="1"
@@ -69,15 +39,82 @@
      fit-margin-right="0"
      fit-margin-bottom="0">
     <inkscape:grid
-       type="xygrid"
-       id="grid2985"
-       empspacing="5"
-       visible="true"
-       enabled="true"
+       originy="-875.35644px"
+       originx="-29.5px"
        snapvisiblegridlinesonly="true"
-       originx="-79.5px"
-       originy="-815.5px" />
+       enabled="true"
+       visible="true"
+       empspacing="5"
+       id="grid2985"
+       type="xygrid" />
   </sodipodi:namedview>
+  <defs
+     id="defs4">
+    <marker
+       inkscape:stockid="DotM"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="DotM"
+       style="overflow:visible">
+      <path
+         id="path6459"
+         d="m -2.5,-1 c 0,2.76 -2.24,5 -5,5 -2.76,0 -5,-2.24 -5,-5 0,-2.76 2.24,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.4,0,0,0.4,2.96,0.4)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="DotL"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="DotL"
+       style="overflow:visible">
+      <path
+         id="path6456"
+         d="m -2.5,-1 c 0,2.76 -2.24,5 -5,5 -2.76,0 -5,-2.24 -5,-5 0,-2.76 2.24,-5 5,-5 2.76,0 5,2.24 5,5 z"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         transform="matrix(0.8,0,0,0.8,5.92,0.8)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <linearGradient
+       osb:paint="solid"
+       id="linearGradient5491">
+      <stop
+         id="stop5493"
+         offset="0"
+         style="stop-color:#ff0000;stop-opacity:1;" />
+    </linearGradient>
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lend"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lend">
+      <path
+         inkscape:connector-curvature="0"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         id="path3822" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Mend"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend">
+      <path
+         inkscape:connector-curvature="0"
+         transform="scale(-0.6,-0.6)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path3846" />
+    </marker>
+  </defs>
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -91,158 +128,142 @@
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="Calque 1"
-     inkscape:groupmode="layer"
+     transform="translate(-29.5,8.1378198)"
      id="layer1"
-     transform="translate(-79.5,-131.86218)">
-    <rect
-       style="fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2;stroke-opacity:1;stroke-dasharray:none"
-       id="rect3759"
-       width="190"
-       height="20"
-       x="100"
-       y="162.36218" />
-    <rect
-       style="fill:#0040ff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2;stroke-opacity:1;stroke-dasharray:none"
-       id="rect3773"
-       width="190"
-       height="20"
-       x="100"
-       y="192.36218" />
-    <text
-       xml:space="preserve"
-       style="font-size:10px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="200"
-       y="180.12097"
-       id="text3779"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan3781"
-         x="200"
-         y="180.12097">Starting</tspan></text>
-    <rect
-       style="fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       id="rect3787"
-       width="180"
-       height="10"
-       x="110"
-       y="162.36218" />
-    <text
-       xml:space="preserve"
-       style="font-size:10px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="199.8291"
-       y="171.09021"
-       id="text3783"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan3785"
-         x="199.8291"
-         y="171.09021">wait for A</tspan></text>
+     inkscape:groupmode="layer"
+     inkscape:label="Calque 1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:1, 2;stroke-dashoffset:0;marker-start:url(#DotM)"
+       d="m 40.5,130.49999 0,20"
+       id="path4133"
+       inkscape:connector-curvature="0"
+       transform="translate(29.5,-8.1378198)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:1, 2;stroke-dashoffset:0;marker-start:url(#DotM)"
+       d="m -19.5,-59.5 0,80"
+       id="path6389"
+       inkscape:connector-curvature="0"
+       transform="translate(79.5,131.86218)" />
     <flowRoot
-       xml:space="preserve"
-       id="flowRoot3793"
-       style="font-size:10px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><flowRegion
-         id="flowRegion3795"><rect
-           id="rect3797"
-           width="65.760933"
-           height="30.405592"
-           x="255.97266"
-           y="123.22387" /></flowRegion><flowPara
-         id="flowPara3799"></flowPara></flowRoot>    <text
-       xml:space="preserve"
        style="font-size:10px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="194.96338"
-       y="205.12097"
-       id="text3801"
+       id="flowRoot3793"
+       xml:space="preserve"><flowRegion
+         id="flowRegion3795"><rect
+           y="123.22387"
+           x="255.97266"
+           height="30.405592"
+           width="65.760933"
+           id="rect3797" /></flowRegion><flowPara
+         id="flowPara3799" /></flowRoot>    <rect
+       y="-7.6378098"
+       x="80"
+       height="29.999985"
+       width="230"
+       id="rect3186"
+       style="fill:#0080ff;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text3192"
+       y="10.672729"
+       x="194.95605"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       xml:space="preserve"><tspan
+         y="10.672729"
+         x="194.95605"
+         id="tspan3194"
+         sodipodi:role="line">Pending</tspan></text>
+    <rect
+       style="fill:#ff8080;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect6347"
+       width="250"
+       height="29.999994"
+       x="-19.5"
+       y="-89.5"
+       transform="translate(79.5,131.86218)" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="184.84766"
+       y="61.835812"
+       id="text6353"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan3803"
-         x="194.96338"
-         y="205.12097">Pending</tspan></text>
+         id="tspan6355"
+         x="184.84766"
+         y="61.835812">Wait for A</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="50"
+       y="12.36218"
+       id="text6365"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6367"
+         x="50"
+         y="12.36218">A</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="50"
+       y="62.362179"
+       id="text6369"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6371"
+         x="50"
+         y="62.362179">B</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="50"
+       y="112.36218"
+       id="text6373"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan6375"
+         x="50"
+         y="112.36218">C</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
-       d="m 80,232.36218 230,0"
-       id="path3813"
-       inkscape:connector-curvature="0" />
+       d="m -49.5,40.5 280,0 20,0"
+       id="path3081"
+       inkscape:connector-curvature="0"
+       transform="translate(79.5,131.86218)" />
     <text
        xml:space="preserve"
-       style="font-size:10px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="320"
-       y="236.09021"
-       id="text4445"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       x="340"
+       y="176.83582"
+       id="text4063"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         id="tspan4447"
-         x="320"
-         y="236.09021">time</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:12px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="90"
-       y="146.73621"
-       id="text4449"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4451"
-         x="90"
-         y="146.73621">A</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:12px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="90"
-       y="176.73621"
-       id="text4453"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4455"
-         x="90"
-         y="176.73621">B</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:12px;font-style:normal;font-weight:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="90"
-       y="206.73035"
-       id="text4457"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan4459"
-         x="90"
-         y="206.73035">C</tspan></text>
+         id="tspan4065"
+         x="340"
+         y="176.83582">time</tspan></text>
     <rect
-       y="132.36218"
-       x="100"
-       height="20"
-       width="190"
-       id="rect4517"
-       style="fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2;stroke-opacity:1;stroke-dasharray:none" />
+       y="92.362175"
+       x="70"
+       height="30"
+       width="240"
+       id="rect4113"
+       style="fill:#ff8080;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <text
        sodipodi:linespacing="125%"
-       id="text4519"
-       y="150.12097"
-       x="200"
-       style="font-size:10px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+       id="text4119"
+       y="111.83581"
+       x="189.84766"
+       style="font-size:12px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
        xml:space="preserve"><tspan
-         y="150.12097"
-         x="200"
-         id="tspan4521"
-         sodipodi:role="line">Starting</tspan></text>
-    <rect
-       y="132.36218"
-       x="110"
-       height="10"
-       width="180"
-       id="rect4523"
-       style="fill:#ff0000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-    <text
-       sodipodi:linespacing="125%"
-       id="text4525"
-       y="141.09021"
-       x="199.8291"
-       style="font-size:10px;font-style:normal;font-weight:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       xml:space="preserve"><tspan
-         y="141.09021"
-         x="199.8291"
-         id="tspan4527"
-         sodipodi:role="line">wait for A</tspan></text>
+         y="111.83581"
+         x="189.84766"
+         id="tspan4121"
+         sodipodi:role="line">Wait for A</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 0.5,170.49999 30,0 0,-10 10,0 0,-10 240,0"
+       id="path4131"
+       inkscape:connector-curvature="0"
+       transform="translate(29.5,-8.1378198)" />
   </g>
 </svg>
