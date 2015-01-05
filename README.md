@@ -398,6 +398,8 @@ If we are lucky, things can happen in this order:
 
 ![Lucky flow](https://rawgithub.com/lhuard1A/throttling-study/master/lucky_flow.svg)
 
+Note that even if this works, before A becomes `ready`, B “consumes” a `starting` slot although it is not consuming resources. It is sub-optimal as, if we knew that B depends of A, we could have started a container of an other POD which doesn’t depend on A.
+
 If we are unlucky, things can happen in this order:
 
 * B and C are started. They are waiting for being able to connect to A
