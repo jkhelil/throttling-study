@@ -46,7 +46,7 @@ The impact is that it slows down the `starting` time of the processes themselves
 
 The main issue we have is that our processes have internal health checks that check that the `starting` phase does not last longer than a pre-defined time-out.
 
-In case of resource starvation, the times-out exhaust and the programs think they fell in an infinite loop or something.
+In case of resource starvation, the times-out expire and the programs think they fell in an infinite loop or something.
 
 We use to solve that issue that limiting the number of processes that can start simultaneously in order to avoid resource starvation and to have more predictable start-up times.
 
@@ -58,11 +58,11 @@ Let’s consider the situation where, on a given machine, we have:
 
 We want to prevent the `starting` POD from starving the `ready` one in order to not degrade the response time of the processes of the `ready` POD. We must guarantee that even if the `starting` POD has much more containers than the `ready` one.
 
-Today, docker containers are spawned in their own cgroup, but those cgroup are all child of `/system.slice`. As a consequence, all the containers have the same weight. If the `starting` POD has ten times more containers than the `ready` one, it will be allocated time times more CPU.
+Today, docker containers are spawned in their own cgroup, but those cgroup are all child of `/system.slice`. As a consequence, all the containers have the same weight. If the `starting` POD has ten times more containers than the `ready` one, it will be allocated ten times more CPU.
 
 Having an additional layer with a slice per POD would allow to have a fair resource allocation per POD instead of having a fair resource allocation per container.
 
-We propose to enhance docker to be able to specify the parent slice of containers’ cgroup ([Pull request #9436](https://github.com/docker/docker/pull/9436)) and to enhance kubernetes to create one slice per POD.
+We propose to enhance docker to be able to specify the parent slice of containers’ cgroup ([Pull request #9436](https://github.com/docker/docker/pull/9436), [Pull request #9551](https://github.com/docker/docker/pull/9551)) and to enhance kubernetes to create one slice per POD.
 
 Before:
 ```
@@ -291,57 +291,57 @@ Such a dependency graph could be described in the POD json like this:
       "version": "v1beta1",
       "id": "app",
       "containers": [{
-        "name": "mag",
-        "image": "me/mag_app",
+        "name": "app_a",
+        "image": "me/app_a",
         "livenessProbe": {
           "exec": {
-            "command": "/check_mag_health"
+            "command": "/check_A_health"
           }
         }
       },{
-        "name": "agent",
-        "image": "me/sei_agent",
+        "name": "app_b",
+        "image": "me/app_b",
         "livenessProbe": {
           "exec": {
-            "command": "/check_agent_health"
+            "command": "/check_B_health"
           }
         },
         "dependsOn": [
           "mag"
         ]
       },{
-        "name": "fe",
-        "image": "me/otf_fe",
+        "name": "app_c",
+        "image": "me/app_c",
         "livenessProbe": {
           "exec": {
-            "command": "/check_fe_health"
+            "command": "/check_C_health"
           }
         },
         "dependsOn": [
-          "agent"
+          "app_b"
         ]
       },{
-        "name": "cs",
-        "image": "me/otf_cs",
+        "name": "app_d",
+        "image": "me/app_d",
         "livenessProbe": {
           "exec": {
-            "command": "/check_cs_health"
+            "command": "/check_D_health"
           }
         },
         "dependsOn": [
-          "agent"
+          "app_b"
         ]
       },{
-        "name": "example",
-        "image": "me/be_example",
+        "name": "app_e",
+        "image": "me/app_e",
         "livenessProbe": {
           "exec": {
-            "command": "/check_example_health"
+            "command": "/check_E_health"
           }
         },
         "dependsOn": [
-          "fe",
-          "cs"
+          "app_c",
+          "app_d"
         ]
       }]
     }

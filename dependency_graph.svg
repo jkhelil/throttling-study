@@ -14,7 +14,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.5 r10040"
-   sodipodi:docname="Nouveau document 1">
+   sodipodi:docname="dependency_graph.svg">
   <defs
      id="defs4">
     <marker
@@ -49,8 +49,8 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="1680"
-     inkscape:window-height="1050"
+     inkscape:window-width="1676"
+     inkscape:window-height="988"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="0">
@@ -72,7 +72,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -103,7 +103,7 @@
            y="64.474487"
            x="350"
            id="tspan3757"
-           sodipodi:role="line">mag</tspan></text>
+           sodipodi:role="line">app_A</tspan></text>
     </g>
     <g
        id="g3790"
@@ -128,7 +128,7 @@
            y="105.32703"
            x="299.78613"
            id="tspan3761"
-           sodipodi:role="line">agent</tspan></text>
+           sodipodi:role="line">app_B</tspan></text>
     </g>
     <g
        id="g3795"
@@ -153,7 +153,7 @@
            y="166.83582"
            x="300.18164"
            id="tspan3765"
-           sodipodi:role="line">fe</tspan></text>
+           sodipodi:role="line">app_C</tspan></text>
     </g>
     <g
        id="g3800"
@@ -178,7 +178,7 @@
            y="165.63757"
            x="439.96484"
            id="tspan3769"
-           sodipodi:role="line">cs</tspan></text>
+           sodipodi:role="line">app_D</tspan></text>
     </g>
     <g
        id="g3805"
@@ -203,7 +203,7 @@
            y="205.67273"
            x="349.98828"
            id="tspan3773"
-           sodipodi:role="line">example</tspan></text>
+           sodipodi:role="line">app_E</tspan></text>
     </g>
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
