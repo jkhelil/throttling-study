@@ -8,57 +8,57 @@ In order to port those applications to Kubernetes/OpenShift, we plan to have man
 
 ### Running does not imply Ready
 
-The first remark is that it is not because a process is started that it is ready to work and process traffic.
+It is not because a process is started that it is ready to work and process traffic.
 
 For example, we can have a process that starts its life by fetching some configuration elements from somewhere and doing some expensive configuration stuff before being really ready to work.
 
 Further in this document, we’ll make a distinction between `starting` and `ready` states.
 * `starting` means that the container is running, the process is live, but it is not ready to do its real “work”. For example, it may still be loading libraries, waiting for a database connection, building some internal caches, whatever…
-* `ready` means that the container is running, is fully functional and is ready to process incoming traffic.
+* `ready` means that the container is running, fully functional and ready to process incoming traffic.
 
 By extension, we can define POD states as:
-* if a POD has at least one container in the `starting` state, then the POD is `starting`;
-* if all the containers of a POD are `ready`, then, the POD is `ready`.
+* `starting` if a POD has at least one container in the `starting` state;
+* `ready` if all the containers of a POD are `ready`.
 
-In today’s Kubernetes terminology, we don’t distinguish those two states and both are named `running`.
+In today’s Kubernetes terminology, we don’t distinguish those states and both are named `running`.
 
 ### Need for throttling
 
-The initialization of the containers might be CPU expensive.
+The initialization of the containers might be expensive in terms of CPU or I/O.
 We have examples of applications that:
 * load a huge number of dynamic libraries and the symbol relocation takes a significant amount of time;
-* retrieve some configuration from a file or a remote DB and denormalize that configuration, this can be expansive as well;
+* retrieve some configuration from a file or a remote DB and denormalize that configuration, this can be expensive as well;
 * create some local caches that need to be fed before the application can work;
 * etc.
 
 A starting container which consumes a lot of resources can have two kind of consequences:
 
 1. It slows down the `ready` containers which are already running on the same machine and cause a response time degradation of the services provided by PODs that are running on the same machine than the starting one.
-2. It slows down the `starting` containers themselves which are longer to become `ready`.
+2. It slows down other `starting` containers which take longer to become `ready`.
 
 #### 1. concurrency between the `starting` POD and the `ready` ones which are running on the same machine
 
-This issue can be solved by adjusting the priorities of the different PODs so that one POD cannot starve other ones.
+This issue can be solved by adjusting the priorities of the different PODs so that one POD cannot starve others.
 
 #### 2. concurrency between the `starting` containers and the other `starting` ones of the same POD
 
-The impact is that it slows down the `starting` time of the processes themselves because of resource starvation.
+This increases the `starting` time of the processes themselves (resource starvation).
 
-The main issue we have is that our processes have internal health checks that check that the `starting` phase does not last longer than a pre-defined time-out.
+Our processes have internal health checks that check that the `starting` phase does not last longer than a pre-defined time-out.
 
-In case of resource starvation, the times-out expire and the programs think they fell in an infinite loop or something.
+In case of resource starvation, the time-out expires and the startup is considered failed.
 
-We use to solve that issue that limiting the number of processes that can start simultaneously in order to avoid resource starvation and to have more predictable start-up times.
+We previously solved this by limiting the number of processes that can start simultaneously in order to avoid resource starvation and have more predictable start-up times.
 
 ## Protect the `ready` PODs from the `starting` ones on the same machine
 
 Let’s consider the situation where, on a given machine, we have:
-* a POD in the `ready` state which is not consuming a lot of CPU but which is handling requests and their response time are critical.
+* a POD in the `ready` state which is not consuming a lot of CPU, but which is handling requests and their response times are critical.
 * a POD in the `starting` state which is very CPU greedy.
 
-We want to prevent the `starting` POD from starving the `ready` one in order to not degrade the response time of the processes of the `ready` POD. We must guarantee that even if the `starting` POD has much more containers than the `ready` one.
+We want to prevent the `starting` POD from starving the `ready` one in order to protect the response times of the processes of the `ready` POD. We must guarantee that even if the `starting` POD has many more containers than the `ready` one.
 
-Today, docker containers are spawned in their own cgroup, but those cgroup are all child of `/system.slice`. As a consequence, all the containers have the same weight. If the `starting` POD has ten times more containers than the `ready` one, it will be allocated ten times more CPU.
+Today, docker containers are spawned in their own cgroups, all children of `/system.slice`. As a consequence, all the containers have the same weight. If the `starting` POD has ten times more containers than the `ready` one, it will be allocated ten times more CPU.
 
 Having an additional layer with a slice per POD would allow to have a fair resource allocation per POD instead of having a fair resource allocation per container.
 
@@ -99,7 +99,7 @@ systemd-cgls
 
 ## Limit the number of processes that are starting at a given time
 
-In order to not overload the machine, we propose to not start a container as soon as its image has been pulled, but to control that start with a policy.
+To avoid overloading a machine, rather than start a container as soon as its image has been pulled, we propose to control that start with a policy.
 
 When a POD is assigned to a minion, kubelet creates the following FSM for each container:
 
@@ -109,19 +109,19 @@ When an image is pulled, the container is not started immediately. Instead, it e
 
 The `pending` to `starting` transition is triggered when the throttling policy authorizes it. The throttling policy is described below.
 
-The `starting` to `ready` transition is triggered when the container is considered as ready.
+The `starting` to `ready` transition is triggered when the container is considered ready.
 
 ### Readiness detection
 
-The `starting` to `ready` transition is new. This transition can be triggered by two ways:
-* either the containers send a notification to tell they are ready;
+The `starting` to `ready` transition is new. This transition can be triggered in two ways:
+* either the containers send a notification to say they are ready;
 * or the containers are polled by docker/kube to check their readiness.
 
 #### `ready` notification
 
 This solution requires the containers to notify their readiness.
 
-systemd has a similar requirement and let the systemd services notify their readiness via different means:
+systemd has a similar requirement and lets services notify their readiness via different means:
 * simple: the service is immediately ready;
 * forking: the service is ready as soon as the parent process exits;
 * dbus: the service is ready as soon as it acquires a name on D-Bus
@@ -137,7 +137,7 @@ For containers, the `notify` service type sounds to be the most suitable.
 
 * Either it introduces some “systemd” dependency, or it requires to implement another notification mechanism inspired by the `sd_notify` feature. In all cases, it is intrusive since it requires to implement something in the containerized processes.
 * This may be perceived as an advantage because existing programs may already implement this `sd_notify` call.
-  In practice, when possible, it is preferable to decouple the public resource allocation (socket binding for example) from the program start-up. Concretely, the sockets are bound by systemd itself, the program is `Type=simle` (considered as ready immediately) and the program receives the file descriptor of the socket.
+  In practice, when possible, it is preferable to decouple the public resource allocation (socket binding for example) from the program start-up. Concretely, the sockets are bound by systemd itself, the program is `Type=simple` (considered as ready immediately) and the program receives the file descriptor of the socket.
 
 #### `ready` polling
 
@@ -157,7 +157,8 @@ The last one sounds generic enough to implement anything.
 
 ##### Cons
 
-* It is based on “polling”
+* It is based on “polling”.
+* More fork/exec.
 
 #### Preferred solution
 
@@ -167,7 +168,7 @@ Reusing the LivenessProbe mechanism.
 
 This is what triggers the `pending` to `starting` transition.
 
-Several strategies are possible
+Several strategies are possible:
 
 #### limit the number of processes in the `starting` state
 
@@ -191,7 +192,7 @@ This policy allows a container to go from `pending` to `starting` as soon as the
 
 #### time throttling
 
-This policy allows only a maximum number of containers to become `starting` per a given amount of time. Ex: 2 containers per minions can be started per second.
+This policy allows only a maximum number of containers to become `starting` per a given amount of time. Ex: 2 containers per minion can be started per second.
 
 ##### Pros
 
@@ -202,7 +203,7 @@ This policy allows only a maximum number of containers to become `starting` per 
 
 * Does not guarantee that:
   * The machine is never overloaded
-  * The resources of the machines are optimized (we don’t uselessly throttle a container whereas the CPU is idle, there is no I/O, etc.
+  * The resources of the machines are optimized (we don’t uselessly throttle a container whereas the CPU is idle, there is no I/O, etc.)
 
 #### resource monitoring
 
@@ -224,11 +225,11 @@ This policy allows a container to become `starting` only if:
 
 The “resource monitoring” policy is the one that better uses the resources but it relies on resource consumption averaged for a given amount of time.
 
-It should be combined with a maximum number of `starting` containers and a maximum start-up rate in order to not start too many containers before the “average CPU for last 10s” or “average I/O for last 10s” or “load average for 1min” increases
+It should be combined with a maximum number of `starting` containers and a maximum start-up rate in order to not start too many containers before the “average CPU for last 10s” or “average I/O for last 10s” or “load average for 1min” increases.
 
-If we limit the maximum number of `starting` containers, we must have a time-out mechanism that prevent containers from staying in `starting` for too long.
+If we limit the maximum number of `starting` containers, we must have a time-out mechanism that prevents containers from staying in `starting` for too long.
 
-If the resources consumption doesn’t drop when containers leave the `starting` state — either because the `ready` containers also consume resources, or because some resources are consumed by processes outside Kubernetes/OpenShift — it will prevent `pending` containers from starting for ever. In order to avoid that, we need to have a minimum start-up rate that guarantees that we will eventually start all the containers.
+If the resource consumption doesn’t drop when containers leave the `starting` state — either because the `ready` containers also consume resources, or because some resources are consumed by processes outside Kubernetes/OpenShift — it will prevent `pending` containers from starting for ever. In order to avoid that, we need to have a minimum start-up rate that guarantees that we will eventually start all the containers.
 
 ##### Pros
 
@@ -268,7 +269,7 @@ kubecfg -c m1_config.json update minions/192.168.10.1
 * **minRate**: Whatever the other settings, we’ll start at least one container every 10s
 * **maxRate**: Whatever the other settings, we’ll start at most 10 containers per second
 
-## Dependency management proposition
+## Dependency management proposal
 
 “A POD is a collocated group of containers […] which are tightly coupled — in a pre-container world, they would have executed on the same physical or virtual host.” (extract from the [PODs definition](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/pods.md))
 
@@ -364,7 +365,7 @@ Then, when a container X passes the `starting` to `ready` transition, for each c
 
 In the example above, when the `fe` container becomes `ready`, the state of `cs` is checked. It it’s `ready`, then the state of `example` moves from `blocking` to `starting`.
 
-### Cycles detection
+### Cycle detection
 
 We must ensure that the dependency graph is a DAG.
 
@@ -398,7 +399,7 @@ If we are lucky, things can happen in this order:
 
 ![Lucky flow](https://rawgithub.com/lhuard1A/throttling-study/master/lucky_flow.svg)
 
-Note that even if this works, before A becomes `ready`, B “consumes” a `starting` slot although it is not consuming resources. It is sub-optimal as, if we knew that B depends of A, we could have started a container of an other POD which doesn’t depend on A.
+Note that even if this works, before A becomes `ready`, B “consumes” a `starting` slot although it is not consuming resources. It is sub-optimal as, if we knew that B depends on A, we could have started a container of an other POD which doesn’t depend on A.
 
 If we are unlucky, things can happen in this order:
 
@@ -421,15 +422,15 @@ Here is the complete FSM of containers:
 ![Unluck flow](https://rawgithub.com/lhuard1A/throttling-study/master/dependency_throttling_fsm.svg)
 
 Some states have associated actions that are triggered when the state is entered:
-* `downloading`: the images is fetched with a `docker pull`;
+* `downloading`: the image is fetched with a `docker pull`;
 * `blocked`: the container can be created with `docker create` but not started;
 * `starting`: the container is started with `docker start`.
 
-The transition are defined as followed:
+The transitions are defined as followed:
 * When a POD is assigned to a minion, all its containers are put in the `downloading` state.
-* When the image is pulled, the containers becomes `blocked`.
+* When the image is pulled, the container becomes `blocked`.
 * Immediately, the dependencies of that container are checked. If they are all in the `ready` state, then the container becomes `pending` immediately, otherwise, it stays in `blocked` state.
 * When there are containers in the `pending` state, the throttling mechanism regularly checks if conditions are met to take a `pending` container and make it progress to `starting`.
-* LivenessProbes regularly check if `ready` containers are `ready`. The first time a LivenessProbe reports a success, the container becomes `ready`.
-* If a container remains `starting` for a time longer than a pre-defined threshold without its LivenessProbe reporting a success, the container becomes `failed`.
-* Each time a container leaves the `starting` state, we check all the dependencies of the `blocked` containers that depends on it. If they are all `ready`, then, that `blocked` container becomes `pending`.
+* LivenessProbes regularly check if `starting` containers are `ready`. The first time a LivenessProbe reports a success, the container becomes `ready`.
+* If a container remains `starting` for longer time than a pre-defined threshold without its LivenessProbe reporting success, the container becomes `failed`.
+* Each time a container leaves the `starting` state, we check all the dependencies of the `blocked` containers that depend on it. If they are all `ready`, then that `blocked` container becomes `pending`.
