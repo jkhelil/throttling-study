@@ -214,11 +214,11 @@ This policy allows a container to become `starting` only if:
 
 ##### Pros
 
-* Really takes into account the available resources of the machine to optimize the startup time without overloading it
+* Really takes into account the available resource of the machine and its usage to optimize utilization without overloading it
 
 ##### Cons
 
-* Implementation more complex
+* Implementation is more complex
 * If the machine is loaded by things other than `starting` containers (like `ready` containers or even processes running on the machine that are not docker containers), it will prevent containers from starting.
 
 #### Composite policy
