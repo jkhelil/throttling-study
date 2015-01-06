@@ -197,7 +197,7 @@ This policy allows only a maximum number of containers to become `starting` per 
 ##### Pros
 
 * Simple
-* Doesn’t require a time-out mechanism
+* Ensures that all containers startup will be _triggered_ within a predictible time, giving a chance to all containers to become ready.
 
 ##### Cons
 
