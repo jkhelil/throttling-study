@@ -214,7 +214,7 @@ This policy allows a container to become `starting` only if:
 
 ##### Pros
 
-* Really takes into account the available resource of the machine and its usage to optimize utilization without overloading it
+* Really takes into account the available resource of the machine and its usage to optimize usage without overloading it
 
 ##### Cons
 
@@ -251,8 +251,8 @@ We could have a configuration file attached to minions.
   "kind": "MinionConfig",
   "apiVersion": "v1beta1",
   "throttling": {
-    "maxStartingContainers": "3 NbCores",
-    "maxLoadAvg": "1.5 NbCores",
+    "maxStartingContainersPerCore": "3",
+    "maxLoadAverageMulitplier": "1.5",
     "maxCPU": "80%",
     "minRate": "0.1",
     "maxRate": "10"
@@ -264,10 +264,10 @@ We could have a configuration file attached to minions.
 kubecfg -c m1_config.json update minions/192.168.10.1
 ```
 
-* **maxStartingContainers**: Can be a absolute value or a factor multiplied by the number of cores of the machine
-* **maxLoadAvg**: Can be a absolute value or a factor multiplied by the number of cores of the machine
-* **minRate**: Whatever the other settings, we’ll start at least one container every 10s
-* **maxRate**: Whatever the other settings, we’ll start at most 10 containers per second
+* **maxStartingContainersPerCore**: The maximum number of containers per core that could be in the `starting` state on the machine.
+* **maxLoadAverageMultiplier**: Can be a factor multiplied by the number of cores of the machine
+* **minRate**: Whatever the other settings, we’ll start at least one container every 10s (i.e: 0.1 container per second)
+* **maxRate**: Whatever the other settings, we’ll start at most 10 containers per second (i.e: 1 container every 100ms)
 
 ## Dependency management proposal
 
@@ -363,7 +363,7 @@ When a container X reaches the `blocked` state, the state of all its dependencie
 
 Then, when a container X passes the `starting` to `ready` transition, for each container Yi in the `blocked` state that depends on X, we check the state of all the dependencies of Yi. If all of them are `ready`, then the Yi container becomes `starting`.
 
-In the example above, when the `fe` container becomes `ready`, the state of `cs` is checked. It it’s `ready`, then the state of `example` moves from `blocking` to `starting`.
+In the example above, when the `fe` container becomes `ready`, the state of `cs` is checked. It it’s `ready`, then the state of `example` moves from `blocked` to `starting`.
 
 ### Cycle detection
 
