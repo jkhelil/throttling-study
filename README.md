@@ -41,7 +41,7 @@ This study proposes to implement a throttling mechanism to improve start-up time
 
 We have applications that require many processes to be spawned on the same machine.
 
-In order to port those applications to Kubernetes/OpenShift, we plan to have many containers (with only one process inside) in a POD.
+In order to port those applications to Kubernetes, we plan to have many containers (with only one process inside) in a POD.
 
 ### Running does not imply Ready
 
@@ -266,7 +266,7 @@ It should be combined with a maximum number of `starting` containers and a maxim
 
 If we limit the maximum number of `starting` containers, we must have a time-out mechanism that prevents containers from staying in `starting` for too long.
 
-If the resource consumption doesn’t drop when containers leave the `starting` state — either because the `ready` containers also consume resources, or because some resources are consumed by processes outside Kubernetes/OpenShift — it will prevent `pending` containers from starting for ever. In order to avoid that, we need to have a minimum start-up rate that guarantees that we will eventually start all the containers.
+If the resource consumption doesn’t drop when containers leave the `starting` state — either because the `ready` containers also consume resources, or because some resources are consumed by processes outside Kubernetes — it will prevent `pending` containers from starting for ever. In order to avoid that, we need to have a minimum start-up rate that guarantees that we will eventually start all the containers.
 
 ##### Pros
 
@@ -400,7 +400,7 @@ When a container X reaches the `blocked` state, the state of all its dependencie
 
 Then, when a container X passes the `starting` to `ready` transition, for each container Yi in the `blocked` state that depends on X, we check the state of all the dependencies of Yi. If all of them are `ready`, then the Yi container becomes `starting`.
 
-In the example above, when the `fe` container becomes `ready`, the state of `cs` is checked. It it’s `ready`, then the state of `example` moves from `blocked` to `starting`.
+In the example above, when the `app_C` container becomes `ready`, the state of `app_D` is checked. It it’s `ready`, then the state of `app_E` moves from `blocked` to `starting`.
 
 ### Cycle detection
 
