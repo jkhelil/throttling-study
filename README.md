@@ -1,5 +1,15 @@
 # Throttling study
 
+## Summary
+
+The purpose of Kubernetes is to orchestrate potentially many big applications that could be co-located on shared minions. Kubernetes’ today policy when starting PODs is to start them asap.
+
+This can be sub-optimal for OLTP applications where many processes/threads are started. During normal operation, those processes/threads are mostly idling, waiting for the next transaction, but when they are starting, they are CPU and IO greedy.
+
+Starting all those processes simultaneously can cause start-up time degradation due to context switching and I/O saturation. In that case, starting them sequentially can improve the start-up time and its predictability.
+
+This study proposes to implement a throttling mechanism to improve start-up time predictability. It covers different possible policies, their pros/cons and implication.
+
 ## Problematic
 
 We have applications that require many processes to be spawned on the same machine.
