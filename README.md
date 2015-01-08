@@ -10,6 +10,45 @@ Starting all those processes simultaneously can cause start-up time degradation 
 
 This study proposes to implement a throttling mechanism to improve start-up time predictability. It covers different possible policies, their pros/cons and implication.
 
+## Table of Contents
+
+  * [Throttling study](#throttling-study)
+    * [Summary](#summary)
+    * [Problematic](#problematic)
+      * [Running does not imply Ready](#running-does-not-imply-ready)
+      * [Need for throttling](#need-for-throttling)
+        * [1. concurrency between the <code>starting</code> POD and the <code>ready</code> ones which are running on the same machine](#1-concurrency-between-the-starting-pod-and-the-ready-ones-which-are-running-on-the-same-machine)
+        * [2. concurrency between the <code>starting</code> containers and the other <code>starting</code> ones of the same POD](#2-concurrency-between-the-starting-containers-and-the-other-starting-ones-of-the-same-pod)
+    * [Protect the <code>ready</code> PODs from the <code>starting</code> ones on the same machine](#protect-the-ready-pods-from-the-starting-ones-on-the-same-machine)
+    * [Limit the number of processes that are starting at a given time](#limit-the-number-of-processes-that-are-starting-at-a-given-time)
+      * [Readiness detection](#readiness-detection)
+        * [`ready` notification](#ready-notification)
+          * [Pros](#pros)
+          * [Cons](#cons)
+        * [`ready` polling](#ready-polling)
+          * [Pros](#pros-1)
+          * [Cons](#cons-1)
+        * [Preferred solution](#preferred-solution)
+      * [Throttling policy](#throttling-policy)
+        * [limit the number of processes in the <code>starting</code> state](#limit-the-number-of-processes-in-the-starting-state)
+          * [Pros](#pros-2)
+          * [Cons](#cons-2)
+        * [time throttling](#time-throttling)
+          * [Pros](#pros-3)
+          * [Cons](#cons-3)
+        * [resource monitoring](#resource-monitoring)
+          * [Pros](#pros-4)
+          * [Cons](#cons-4)
+        * [Composite policy](#composite-policy)
+          * [Pros](#pros-5)
+          * [Cons](#cons-5)
+      * [Configuration example](#configuration-example)
+    * [Dependency management proposal](#dependency-management-proposal)
+      * [Cycle detection](#cycle-detection)
+    * [Combining throttling with dependency management](#combining-throttling-with-dependency-management)
+      * [Example of why dependency management needs to be combined with throttling](#example-of-why-dependency-management-needs-to-be-combined-with-throttling)
+      * [Final picture](#final-picture)
+
 ## Problematic
 
 We have applications that require many processes to be spawned on the same machine.
