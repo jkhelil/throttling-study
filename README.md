@@ -367,9 +367,9 @@ In the example above, when the `fe` container becomes `ready`, the state of `cs`
 
 ### Cycle detection
 
-We must ensure that the dependency graph is a DAG.
+We must ensure that the dependency graph is a Directed Acyclic Graph (DAG), that is to say that we do not have circular dependencies among our containers.
 
-This could, for example, be checked when parsing the json if we enforce a rule saying that in the `dependsOn` list of a container, we can only have containers which are declared above in the file.
+This could, for example, be checked when parsing the json if we enforce a rule saying that the `dependsOn` list of a container can only contain containers previously declared in the file.
 
 ## Combining throttling with dependency management
 
