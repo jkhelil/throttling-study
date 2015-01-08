@@ -2,13 +2,13 @@
 
 ## Summary
 
-The purpose of Kubernetes is to orchestrate potentially many big applications that could be co-located on shared minions. Kubernetes’ today policy when starting PODs is to start them asap.
+The purpose of Kubernetes is to orchestrate many, potentially big, applications that could be co-located on shared minions. Kubernetes’ current policy when starting PODs is to start them asap.
 
 This can be sub-optimal for OLTP applications where many processes/threads are started. During normal operation, those processes/threads are mostly idling, waiting for the next transaction, but when they are starting, they are CPU and IO greedy.
 
-Starting all those processes simultaneously can cause start-up time degradation due to context switching and I/O saturation. In that case, starting them sequentially can improve the start-up time and its predictability.
+Starting all those processes simultaneously can cause start-up time degradation due to context switching and I/O saturation. In that case, starting them in a controlled manner can improve the start-up time and its predictability.
 
-This study proposes to implement a throttling mechanism to improve start-up time predictability. It covers different possible policies, their pros/cons and implication.
+This study proposes to implement a throttling mechanism to improve start-up time predictability. It covers different possible policies, their pros/cons and implications.
 
 ## Table of Contents
 
@@ -23,25 +23,13 @@ This study proposes to implement a throttling mechanism to improve start-up time
     * [Limit the number of processes that are starting at a given time](#limit-the-number-of-processes-that-are-starting-at-a-given-time)
       * [Readiness detection](#readiness-detection)
         * [`ready` notification](#ready-notification)
-          * [Pros](#pros)
-          * [Cons](#cons)
         * [`ready` polling](#ready-polling)
-          * [Pros](#pros-1)
-          * [Cons](#cons-1)
         * [Preferred solution](#preferred-solution)
       * [Throttling policy](#throttling-policy)
         * [limit the number of processes in the <code>starting</code> state](#limit-the-number-of-processes-in-the-starting-state)
-          * [Pros](#pros-2)
-          * [Cons](#cons-2)
         * [time throttling](#time-throttling)
-          * [Pros](#pros-3)
-          * [Cons](#cons-3)
         * [resource monitoring](#resource-monitoring)
-          * [Pros](#pros-4)
-          * [Cons](#cons-4)
         * [Composite policy](#composite-policy)
-          * [Pros](#pros-5)
-          * [Cons](#cons-5)
       * [Configuration example](#configuration-example)
     * [Dependency management proposal](#dependency-management-proposal)
       * [Cycle detection](#cycle-detection)
