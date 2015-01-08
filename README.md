@@ -404,10 +404,10 @@ Note that even if this works, before A becomes `ready`, B “consumes” a `star
 If we are unlucky, things can happen in this order:
 
 * B and C are started. They are waiting for being able to connect to A
-* A is not started because we already have two processes in the starting mode.
+* A is not started because we already have two processes in the starting mode which is the maximum allowed by our policy.
 * We’re dead-locked.
 
-![Unluck flow](https://rawgithub.com/lhuard1A/throttling-study/master/unlucky_flow.svg)
+![Unlucky flow](https://rawgithub.com/lhuard1A/throttling-study/master/unlucky_flow.svg)
 
 This trivial example shows that
 * limiting the number of processes starting at a time and
